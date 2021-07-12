@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <ul class="list-group">
-            <IssuesListItem 
-                v-for="issue in issues"
-                :issue="issue"
-                :key="issue.id"
-               >
-            </IssuesListItem>
-        </ul>
-    </div>
+  <div>
+    <ul class="list-group">
+      <IssuesListItem 
+        v-for="issue in issues"
+        :issue="issue"
+        :key="issue.id"
+      >
+      </IssuesListItem>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -16,19 +16,19 @@ import axios from 'axios';
 import IssuesListItem from './IssuesListItem'
 
 export default {
-    name: 'IssuesList',
+  name: 'IssuesList',
     components: {
-        IssuesListItem,
+      IssuesListItem,
     },
     data() {
-        return {
-            issues: [],
-        };
+      return {
+        issues: [],
+      };
     },
     created: function() {
-        axios.get('https://api.github.com/repos/vuejs/vue/issues').then((response) => {
-            this.issues = response.data;
-        });
+      axios.get('https://api.github.com/repos/vuejs/vue/issues').then((response) => {
+        this.issues = response.data;
+      });
     }
 }
 </script>
