@@ -1,9 +1,24 @@
 <template>
-  <li class="list-group-item media">
+  <li class="list-group-item media parent">
+    <div class="text-center mx-2">
+      <img 
+        v-if="issue.state === 'open'"
+        src="../assets/static/images/open.jpeg"
+      >
+      <img 
+        v-else
+        src="../assets/static/images/closed.jpeg" 
+      >
+    </div>
+
     <div class="media-body">
       <b>{{ issue.title }}</b>
-      <span>
-      {{ issue.labels.name }}
+      <span 
+        v-for="label in issue.labels"
+        :key="label.id"
+        :style="{ backgroundColor: label.color }"
+      >
+        {{ label.name }}
       </span>
 
       <br>
@@ -36,4 +51,12 @@ export default {
 </script>
 
 <style scoped>
+.parent {
+    display: flex;
+}
+
+img {
+  width: 15px;
+  margin-right: 10px;
+}
 </style>
