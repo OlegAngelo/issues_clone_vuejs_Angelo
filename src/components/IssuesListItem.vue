@@ -16,7 +16,8 @@
       <span 
         v-for="label in issue.labels"
         :key="label.id"
-        :style="{ backgroundColor: label.color }"
+        :style="{ backgroundColor: `#${label.color}` }"
+        class="labels px-2 mx-2"
       >
         {{ label.name }}
       </span>
@@ -58,5 +59,9 @@ export default {
 img {
   width: 15px;
   margin-right: 10px;
+}
+
+.labels {
+  border-radius: 12px;
 }
 </style>
