@@ -1,17 +1,13 @@
 <template>
   <div class="container">
-    <IssuesList></IssuesList>
+    <!-- <IssuesList></IssuesList> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import IssuesList from './components/IssuesList'
-
 export default {
   name: 'App',
-  components: {
-    IssuesList
-  },
 };
 </script>
  

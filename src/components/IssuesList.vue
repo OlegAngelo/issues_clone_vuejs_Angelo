@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Pagination></Pagination>
     <ul class="list-group">
       <IssuesListItem 
         v-for="issue in issues"
@@ -13,12 +14,14 @@
 
 <script>
 import axios from 'axios';
-import IssuesListItem from './IssuesListItem'
+import IssuesListItem from './IssuesListItem';
+import Pagination from './Pagination.vue';
 
 export default {
   name: 'IssuesList',
     components: {
       IssuesListItem,
+      Pagination
     },
     data() {
       return {
