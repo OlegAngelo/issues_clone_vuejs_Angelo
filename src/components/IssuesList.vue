@@ -29,7 +29,13 @@ export default {
       };
     },
     created: function() {
-      axios.get('https://api.github.com/repos/vuejs/vue/issues').then((response) => {
+      axios.get('https://api.github.com/repos/vuejs/vue/issues',{
+        params: {
+          per_page: 25,
+          page: 1,
+          filter: 'all'
+        }
+      }).then((response) => {
         this.issues = response.data;
       });
     }
