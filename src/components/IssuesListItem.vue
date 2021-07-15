@@ -47,7 +47,7 @@ export default {
         
       return `on ${timestamp.format("MMM D")}`;
     }
-  }
+  },
 }
 </script>
 
