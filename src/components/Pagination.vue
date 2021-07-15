@@ -48,7 +48,7 @@ export default {
       this.$emit('currentIssues', this.issues);
     },
     pageUpdate() {
-      this.$router.push({ path: `/page=${this.currentPage}` });
+      this.$router.push({ path: '/', query: { page: this.currentPage } });
     },
   }
 }
