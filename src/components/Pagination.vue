@@ -7,8 +7,8 @@
       align="center"
       :total-rows="rows"
     >
-      <template #prev-text><span @click="fetchAPI()">&lt; Prev</span></template>
-      <template #next-text><span @click="fetchAPI()">Next &gt;</span></template>
+      <template #prev-text><span @click="fetchAPI()"> &lt; Prev</span></template>
+      <template #next-text><span @click="fetchAPI()" @onBtnClick="pageUpdate()">Next &gt;</span></template>
       <template #page="{ page, active }">
         <b v-if="active">{{ page }}</b>
         <i v-else>{{ page }}</i>
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       issues: [],
-      rows: 300,
+      rows: 500,
       currentPage: 1
     }
   },
@@ -42,9 +42,13 @@ export default {
       });
 
       this.currentIssues();
+      this.pageUpdate();
     },
     currentIssues() {
       this.$emit('currentIssues', this.issues);
+    },
+    pageUpdate() {
+      this.$router.push({ path: `/page=${this.currentPage}` });
     },
   }
 }

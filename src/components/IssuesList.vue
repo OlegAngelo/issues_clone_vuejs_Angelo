@@ -43,7 +43,7 @@ export default {
       axios.get('https://api.github.com/repos/vuejs/vue/issues',{
         params: {
           per_page: 25,
-          page: 1,
+          page: this.currentPage,
           filter: 'all',
         }
       }).then((response) => {
